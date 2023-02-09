@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import type { ProductType } from '../../../api/deviceApi';
-import deviceApi from '../../../api/deviceApi';
+import type { ProductType } from '../../../api/productApi';
+import deviceApi from '../../../api/productApi';
 
 import DevicesList from '../components/DevicesList/DevicesList';
 import Pagination from '../components/Pagination';

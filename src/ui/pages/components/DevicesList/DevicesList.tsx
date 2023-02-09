@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ProductType } from '../../../../api/deviceApi';
+import type { ProductType } from '../../../../api/productApi';
 
 import StyledDevicesList from './DevicesList.style';
 import DeviceItem from '../DeviceItem/DeviceItem';

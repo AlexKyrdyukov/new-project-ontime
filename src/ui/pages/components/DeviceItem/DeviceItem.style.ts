@@ -13,7 +13,10 @@ const StyledDeviceItem = styled.div`
   }
 
   & span {
-    padding-right: 20px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    color: orange;
   }
 `;
 

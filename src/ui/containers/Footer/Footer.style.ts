@@ -7,6 +7,11 @@ const StyledFooter = styled.footer`
   align-items: center;
   background-color: green;
   padding: 40px;
+
+  & p {
+    font-weight: 500;
+    font-size: 28px;
+  }
 `;
 
 export default StyledFooter;

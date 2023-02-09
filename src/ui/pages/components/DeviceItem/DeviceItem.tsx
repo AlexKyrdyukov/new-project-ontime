@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import type { ProductType } from '../../../../api/deviceApi';
+import type { ProductType } from '../../../../api/productApi';
 
 import StyledDeviceItem from './DeviceItem.style';
 
@@ -13,7 +13,9 @@ const DeviceItem: React.FC<PropsType> = (props) => {
   return (
     <StyledDeviceItem>
       <div>
-        <Link to={`/productItem/${props.device.id}`}>
+        <Link
+          to={`/productItem/${props.device.id}`}
+        >
           <img
             className="device-image"
             src={props.device.thumbnail} alt="device"

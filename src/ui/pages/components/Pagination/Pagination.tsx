@@ -11,16 +11,21 @@ type PropsType = {
 
 const Pagination: React.FC<PropsType> = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [buttonsArray, setButtonState] = React.useState<number[]>([]);
+  const [buttonsArray, setButtonArray] = React.useState<number[]>([]);
+
+  React.useEffect(() => {
+    if (!searchParams.get('page')) {
+      searchParams.set('page', '1');
+      setSearchParams(searchParams);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   React.useEffect(() => {
     const length = Number(props.paginationData.total) / Number(props.paginationData.limit);
-
     const buttons = [...new Array(length || 2)].map((item, index) => index + 1);
-
-    setButtonState(buttons);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.paginationData]);
+    setButtonArray(buttons);
+  }, [props]);
   const handleSearchParams = (page: number) => {
     searchParams.set('page', String(page));
     setSearchParams(searchParams);
@@ -37,6 +42,11 @@ const Pagination: React.FC<PropsType> = (props) => {
       </button>
       {buttonsArray.map((item) => (
         <button
+          className={
+            item === Number(searchParams.get('page'))
+              ? 'active'
+              : ''
+          }
           onClick={
             () => handleSearchParams(item)
           }
